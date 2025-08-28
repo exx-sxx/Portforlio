@@ -1,0 +1,198 @@
+/* src/app/page.module.css */
+
+.container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navLink {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover {
+  color: #047857;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.aboutMeText {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.grayBackground {
+  background-color: #f3f4f6;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skillCard {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.skillTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0d9488;
+  margin-bottom: 1rem;
+}
+
+.skillList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.skillList li {
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.projectCard {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+}
+
+.projectImage {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.projectContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.projectDescription {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.techStack {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background-color: #ccfbf1;
+  color: #0d9488;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+}
+
+.projectLink {
+  margin-top: 1rem;
+  display: inline-block;
+  color: #047857;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+}
+
+
+/* Contact 섹션 스타일 */
+.contactInfo {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.contactText {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contactLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #0d9488;
+  color: #fff;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.contactLink:hover {
+  background-color: #047857;
+}
