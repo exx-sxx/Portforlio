@@ -1,39 +1,29 @@
+// src/app/page.tsx
+
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './page.module.css';
-
-// 프로젝트 정보 배열
-const projects = [
-  {
-    title: '서비스 기획 프로젝트 A',
-    description: '사용자 데이터 분석을 통해 이탈율을 20% 개선한 서비스입니다.',
-    techStack: ['Figma', 'Miro', 'Google Analytics'],
-    link: '#',
-    image: '/images/projectA.jpg',
-  },
-  {
-    title: '서비스 기획 프로젝트 B',
-    description: 'A/B 테스트를 통해 신규 기능 도입을 결정한 프로젝트입니다.',
-    techStack: ['Zeplin', 'Hotjar', 'SQL'],
-    link: '#',
-    image: '/images/projectB.jpg',
-  },  {
-    title: '서비스 기획 프로젝트 C',
-    description: 'A/B 테스트를 통해 신규 기능 도입을 결정한 프로젝트입니다.',
-    techStack: ['Zeplin', 'Hotjar', 'SQL'],
-    link: '#',
-    image: '/images/projectB.jpg',
-  },  {
-    title: '서비스 기획 프로젝트 D',
-    description: 'A/B 테스트를 통해 신규 기능 도입을 결정한 프로젝트입니다.',
-    techStack: ['Zeplin', 'Hotjar', 'SQL'],
-    link: '#',
-    image: '/images/projectB.jpg',
-  },
-];
+import Modal from './components/Modal';
+import { projects } from '@/data/projects'; 
+import { Project } from '@/data/types'; // Project 타입 import
 
 export default function Home() {
+  // ✅ useState에 Project 타입을 명시하여 `selectedProject`가 `Project` 객체 또는 `null`임을 알려줍니다.
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // ✅ `project` 인자에 `Project` 타입을 명시합니다.
+  const handleOpenModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div>
       {/* 고정된 헤더 */}
@@ -50,7 +40,7 @@ export default function Home() {
             <a href="#projects" className={styles.navLink}>
               Projects
             </a>
-             <a href="#contact" className={styles.navLink}>
+            <a href="#contact" className={styles.navLink}>
               Contact
             </a>
           </nav>
@@ -132,9 +122,13 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <a href={project.link} className={styles.projectLink}>
+                  {/* '자세히 보기' 버튼으로 변경 */}
+                  <button
+                    onClick={() => handleOpenModal(project)}
+                    className={styles.projectLink}
+                  >
                     자세히 보기 &rarr;
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -142,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-       {/* Contact 섹션 추가 */}
+      {/* Contact 섹션 추가 */}
       <section id="contact" className={`${styles.section} ${styles.grayBackground}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>✉️ Contact Me</h2>
@@ -165,6 +159,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 모달 컴포넌트 추가 */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        project={selectedProject}
+      />
     </div>
   );
 }
